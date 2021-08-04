@@ -1,5 +1,5 @@
+@tool
 extends EditorPlugin
-tool
 
 var editor_interface: EditorInterface = null
 
@@ -14,7 +14,7 @@ func _notification(p_notification: int):
 			print("Destroying DebugManager plugin")
 
 
-func get_name() -> String:
+func _get_plugin_name() -> String:
 	return "DebugManager"
 
 
