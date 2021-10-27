@@ -208,8 +208,8 @@ func create_new_debug_layer(p_layer_name: String) -> void:
 
 func _ready() -> void:
 	debug_material = StandardMaterial3D.new()
-	debug_material.flags_unshaded = true
-	debug_material.flags_no_depth_test = true
+	debug_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	debug_material.no_depth_test = true
 	debug_material.vertex_color_use_as_albedo = true
 	
 	create_new_debug_layer("GenericDebug")
