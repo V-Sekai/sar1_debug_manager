@@ -182,7 +182,7 @@ func create_debug_object_for_layer(p_layer_name: String) -> StubImmediateGeometr
 	immediate_geometry.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	var tmp: Variant = debug_material
 	immediate_geometry.material_override = tmp
-	layers[p_layer_name].add_child(immediate_geometry)
+	layers[p_layer_name].add_child(immediate_geometry, true)
 	
 	return immediate_geometry
 	
@@ -204,7 +204,7 @@ func create_new_debug_layer(p_layer_name: String) -> void:
 	
 	layers[p_layer_name] = debug_layer
 	
-	add_child(debug_layer)
+	add_child(debug_layer, true)
 
 func _ready() -> void:
 	debug_material = StandardMaterial3D.new()
