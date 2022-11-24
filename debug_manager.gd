@@ -5,6 +5,7 @@ var layers: Dictionary = {}
 
 var cached_spheres: Dictionary = {}
 
+const debug_manager_const = preload("res://addons/sar1_debug_manager/debug_manager.gd")
 
 # Remove when Godot 4.x implements support for ImmediateGometry3D
 class StubImmediateGeometry3D:
@@ -111,7 +112,7 @@ static func get_sphere_lines(p_position: Vector3, p_lats: int, p_lons: int, p_ra
 	
 func get_cached_sphere_lines(p_lats: int, p_lons: int) -> PackedVector3Array:
 	if !cached_spheres.has([p_lats, p_lons]):
-		cached_spheres[[p_lats, p_lons]] = get_sphere_lines(Vector3(), p_lats, p_lons, 1.0)
+		cached_spheres[[p_lats, p_lons]] = debug_manager_const.get_sphere_lines(Vector3(), p_lats, p_lons, 1.0)
 		
 	return cached_spheres[[p_lats, p_lons]]
 	
