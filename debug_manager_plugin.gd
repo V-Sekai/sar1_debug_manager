@@ -21,9 +21,7 @@ func _get_plugin_name() -> String:
 func _enter_tree() -> void:
 	editor_interface = get_editor_interface()
 
-	add_autoload_singleton(
-		"DebugManager", "res://addons/sar1_debug_manager/debug_manager.gd"
-	)
+	add_autoload_singleton("DebugManager", "res://addons/sar1_debug_manager/debug_manager.gd")
 
 
 func _exit_tree() -> void:
