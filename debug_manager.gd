@@ -123,7 +123,9 @@ func clear(p_debug_object: StubImmediateGeometry3D) -> void:
 	p_debug_object.clear()
 
 
-func draw_line(p_debug_object: StubImmediateGeometry3D, p_start: Vector3, p_end: Vector3, p_color: Color, p_clear: bool) -> void:
+func draw_line(
+	p_debug_object: StubImmediateGeometry3D, p_start: Vector3, p_end: Vector3, p_color: Color, p_clear: bool
+) -> void:
 	if p_debug_object.is_visible_in_tree():
 		if p_clear:
 			clear(p_debug_object)
@@ -135,7 +137,13 @@ func draw_line(p_debug_object: StubImmediateGeometry3D, p_start: Vector3, p_end:
 		p_debug_object._commit_arraymesh()
 
 
-func draw_lines(p_debug_object: StubImmediateGeometry3D, p_transform: Transform3D, p_lines: PackedVector3Array, p_color: Color, p_clear: bool) -> void:
+func draw_lines(
+	p_debug_object: StubImmediateGeometry3D,
+	p_transform: Transform3D,
+	p_lines: PackedVector3Array,
+	p_color: Color,
+	p_clear: bool
+) -> void:
 	if p_debug_object.is_visible_in_tree():
 		if p_clear:
 			clear(p_debug_object)
@@ -148,7 +156,13 @@ func draw_lines(p_debug_object: StubImmediateGeometry3D, p_transform: Transform3
 		p_debug_object._commit_arraymesh()
 
 
-func draw_line_strip(p_debug_object: StubImmediateGeometry3D, p_transform: Transform3D, p_lines: PackedVector3Array, p_color: Color, p_clear: bool) -> void:
+func draw_line_strip(
+	p_debug_object: StubImmediateGeometry3D,
+	p_transform: Transform3D,
+	p_lines: PackedVector3Array,
+	p_color: Color,
+	p_clear: bool
+) -> void:
 	if p_debug_object.is_visible_in_tree():
 		if p_clear:
 			clear(p_debug_object)
@@ -161,10 +175,24 @@ func draw_line_strip(p_debug_object: StubImmediateGeometry3D, p_transform: Trans
 		p_debug_object._commit_arraymesh()
 
 
-func draw_sphere(p_debug_object: StubImmediateGeometry3D, p_position: Vector3, p_lats: int, p_lons: int, p_radius: float, p_color: Color, p_clear: bool) -> void:
+func draw_sphere(
+	p_debug_object: StubImmediateGeometry3D,
+	p_position: Vector3,
+	p_lats: int,
+	p_lons: int,
+	p_radius: float,
+	p_color: Color,
+	p_clear: bool
+) -> void:
 	if p_debug_object.is_visible_in_tree():
 		var lines: PackedVector3Array = get_cached_sphere_lines(p_lats, p_lons)
-		draw_lines(p_debug_object, Transform3D(Basis().scaled(Vector3(p_radius, p_radius, p_radius)), p_position), lines, p_color, p_clear)
+		draw_lines(
+			p_debug_object,
+			Transform3D(Basis().scaled(Vector3(p_radius, p_radius, p_radius)), p_position),
+			lines,
+			p_color,
+			p_clear
+		)
 
 
 ##
